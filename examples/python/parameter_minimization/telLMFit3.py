@@ -8,15 +8,15 @@ import ctypes as ct
 try:
 
     chiPlugin   = tel.Plugin("tel_chisquare")
-    
-    #Retrieve a SBML model from plugin        
-    modelPlugin= tel.Plugin("tel_sbml_model")        
+
+    #Retrieve a SBML model from plugin
+    modelPlugin= tel.Plugin("tel_sbml_model")
     sbml_model = modelPlugin.Model
 
     # Create a roadrunner instance and create some data
     rr = roadrunner.RoadRunner()
     rr.load(sbml_model)
-    data = rr.simulate(0, 10, 15000) # Want 512 points
+    data = rr.simulate(0, 10, 1500) # Want 512 points
 
     #Add noise to the data
     noisePlugin = tel.Plugin ("tel_add_noise")

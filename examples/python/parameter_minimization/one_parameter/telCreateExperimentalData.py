@@ -3,16 +3,16 @@ from telplugins import *
 
 try:
     # Create a roadrunner instance and create some data
-    modelPlugin = Plugin("tel_sbml_model")     
-    
+    modelPlugin = Plugin("tel_sbml_model")
+
     rr = roadrunner.RoadRunner()
-    rr.load(modelPlugin.Model) 
-    
-    rr.setValue("k1", 0.57)   
-    rr.reset()   
+    rr.load(modelPlugin.Model)
+
+    rr.setValue("k1", 0.57)
+    rr.reset()
     timeStart = 0
     timeEnd = 10
-    nrPoints  = 15
+    nrPoints  = 50
     data = rr.simulate(0, timeEnd, nrPoints  - 1)
 
     #Add some noise to the data
@@ -27,28 +27,28 @@ try:
     # Set parameter for the 'size' of the noise
     sigma = 1.34e-6
     noisePlugin.Sigma = sigma
-        
+
     # Add the noise
     noisePlugin.execute()
 
     # Get the data to plot
     theData = noisePlugin.InputData
     theData.plot()
-            
-    # Need to add weight stuff to DataSeries class?            
+
+    # Need to add weight stuff to DataSeries class?
     dataHandle = theData._data
     if not hasWeights(dataHandle):
         allocateWeights(dataHandle)
-                    
+
     #Populate weights, using the sigma above
     hdrs = list(theData.getColumnHeaders().split(','))
-    
+
     for c in range(theData.cols):
-        for r in range(theData.rows):    
+        for r in range(theData.rows):
             if hdrs[c].lower() != "Time".lower():
                 weight = theData.getWeight(r,c)
-                theData.setWeight(r,c, sigma * sigma)                
-    
+                theData.setWeight(r,c, sigma * sigma)
+
     noisePlugin.InputData.writeDataSeries("ExperimentalData.dat")
     print "done"
 
