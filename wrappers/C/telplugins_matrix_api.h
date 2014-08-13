@@ -81,7 +81,7 @@ TLP_C_DS int tlp_cc tpGetMatrixNumCols(TELHandle data);
 
  RoadRunner numerical data are indexed from zero
 
- Example: \code status = getTelluriumDataElement (rrDataHandle, 2, 4, *value); \endcode
+ Example: \code status = getTelluriumDataElement (rrdatahandle, 2, 4, *value); \endcode
 
  \param matrixH A Handle o a Tellurium matrix type variable
  \param r The row index to the matrixH data

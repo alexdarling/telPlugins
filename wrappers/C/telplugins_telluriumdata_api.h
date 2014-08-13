@@ -64,7 +64,7 @@ TLP_C_DS TELHandle tlp_cc tpGetRoadRunnerDataHandle(TELHandle handle);
 
  Tellurium numerical data are indexed from zero
 
- Example: \code status = getTelluriumDataElement (rrDataHandle, 2, 4, *value); \endcode
+ Example: \code status = getTelluriumDataElement (rrdatahandle, 2, 4, *value); \endcode
 
  \param rrData A Handle o a Tellurium data type variable
  \param r The row index to the rrData data
@@ -80,7 +80,7 @@ TLP_C_DS bool tlp_cc tpGetTelluriumDataElement(TELHandle rrData, int r, int c, d
 
  Tellurium numerical data are indexed from zero
 
- Example: \code status = setTelluriumDataElement (rrDataHandle, 2, 4, 42); \endcode
+ Example: \code status = setTelluriumDataElement (rrdatahandle, 2, 4, 42); \endcode
 
  \param rrData A Handle o a Tellurium data type variable
  \param r The row index to the rrData data
@@ -96,7 +96,7 @@ TLP_C_DS bool tlp_cc tpSetTelluriumDataElement(TELHandle rrData, int r, int c, d
 
  Tellurium numerical data are indexed from zero
 
- Example: \code status = getTelluriumDataWeight (rrDataHandle, 2, 4, *value); \endcode
+ Example: \code status = getTelluriumDataWeight (rrdatahandle, 2, 4, *value); \endcode
 
  \param rrData A Handle o a Tellurium data type variable
  \param r The row index to the rrData data
@@ -104,7 +104,7 @@ TLP_C_DS bool tlp_cc tpSetTelluriumDataElement(TELHandle rrData, int r, int c, d
  \param[out] value - The retrieved weight value from the rrData data
  \return Returns true if succesful;
  \note In order to use weights with a roadrunner data object, make sure that data weights are allocated, using the function haveWeights(TELHandle), and
- allocateWeights(rrDataHandle).
+ allocateWeights(rrdatahandle).
  \ingroup roadrunnerdata
 */
 TLP_C_DS bool tlp_cc tpGetTelluriumDataWeight(TELHandle rrData, int r, int c, double *value);
@@ -134,7 +134,7 @@ TLP_C_DS bool tlp_cc tpAllocateWeights(TELHandle rrData, bool* success);
 
  Tellurium numerical data are indexed from zero
 
- Example: \code status = setTelluriumDataWeight (rrDataHandle, 2, 4, .89); \endcode
+ Example: \code status = setTelluriumDataWeight (rrdatahandle, 2, 4, .89); \endcode
 
  \param rrData A Handle o a Tellurium data type variable
  \param r The row index to the rrData data
@@ -142,7 +142,7 @@ TLP_C_DS bool tlp_cc tpAllocateWeights(TELHandle rrData, bool* success);
  \param[in] value - The new value.
  \return Returns true if succesful
  \note In order to use weights with a roadrunner data object, make sure that data weights are allocated, using the function haveWeights(TELHandle), and
- allocateWeights(rrDataHandle).
+ allocateWeights(rrdatahandle).
  \ingroup roadrunnerdata
 */
 TLP_C_DS bool tlp_cc tpSetTelluriumDataWeight(TELHandle rrData, int r, int c, double value);
