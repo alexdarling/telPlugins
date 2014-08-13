@@ -38,7 +38,7 @@ void lmObjectiveFunction(const double *par,       //Property vector
         Log(lDebug)<<myData->parameterLabels[i]<<" = "<<par[i]<<endl;
     }
 
-    rrc::RRDataHandle rrData = NULL;
+    rrc::RRCDataPtr rrData = NULL;
     rrData = simulateEx(   myData->rrHandle,
                            myData->timeStart,
                            myData->timeEnd,
@@ -59,8 +59,6 @@ void lmObjectiveFunction(const double *par,       //Property vector
         return;
     }
 
-    //Don't create RRC data, use rrData directly here
-    RRCDataPtr rrcData = createRRCData(rrData);
     //calculate fvec for each specie
     int count = 0;
     vector<double> residuals(myData->nrOfSpecies *  myData->nrOfTimePoints);
